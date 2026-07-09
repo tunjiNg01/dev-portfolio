@@ -5,6 +5,7 @@ import { MouseGlow } from "../components/ui/MouseGlow";
 import { Typewriter } from "../components/ui/Typewriter";
 import { CodeSnippet } from "../components/ui/CodeSnippet";
 import { useScrollReveal } from "../hooks/useScrollReveal";
+import { ArticleCard } from "../components/ui/ArticleCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
@@ -202,59 +203,35 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <article className="article-card reveal">
-              <div className="flex items-start justify-between mb-6">
-                <div className="card-num">01</div>
-                <span className="tag">Backend</span>
-              </div>
-              <div className="font-mono text-xs mb-4" style={{ color: "var(--muted)" }}>DoNotSell · 2025 — Lead Engineer</div>
-              <h3 className="font-display font-bold text-2xl mb-4 leading-tight">
-                Serverless Social Platform & Cross-Platform App
-              </h3>
-              <p className="text-sm mb-8" style={{ color: "var(--muted)", lineHeight: 1.65 }}>
-                Architected a full-lifecycle Community Social Platform using AWS Lambda, API Gateway, and Prisma. Built the accompanying Flutter app with Clean Architecture, Riverpod, WebSockets, and Biometric Auth.
-              </p>
-              <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest" style={{ color: "var(--accent)" }}>
-                <span>view case study</span>
-                <span className="arrow">→</span>
-              </div>
-            </article>
+            <ArticleCard
+              num="01"
+              tag="Backend"
+              meta="DoNotSell · 2025 — Lead Engineer"
+              title="Serverless Social Platform & Cross-Platform App"
+              description="Architected a full-lifecycle Community Social Platform using AWS Lambda, API Gateway, and Prisma. Built the accompanying Flutter app with Clean Architecture, Riverpod, WebSockets, and Biometric Auth."
+              ctaText="view case study"
+              href="#archive"
+            />
 
-            <article className="article-card reveal">
-              <div className="flex items-start justify-between mb-6">
-                <div className="card-num">02</div>
-                <span className="tag">FinTech</span>
-              </div>
-              <div className="font-mono text-xs mb-4" style={{ color: "var(--muted)" }}>Mango Asset Mgt · 2023-2024</div>
-              <h3 className="font-display font-bold text-2xl mb-4 leading-tight">
-                SEC-Compliant Asset Management APIs
-              </h3>
-              <p className="text-sm mb-8" style={{ color: "var(--muted)", lineHeight: 1.65 }}>
-                Built serverless backend services for account management (Joint, Corporate, Individual), KYC handling, bank integrations, and SEC-standard tier-level compliance using AWS and Node.js.
-              </p>
-              <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest" style={{ color: "var(--accent)" }}>
-                <span>view case study</span>
-                <span className="arrow">→</span>
-              </div>
-            </article>
+            <ArticleCard
+              num="02"
+              tag="FinTech"
+              meta="Mango Asset Mgt · 2023-2024"
+              title="SEC-Compliant Asset Management APIs"
+              description="Built serverless backend services for account management (Joint, Corporate, Individual), KYC handling, bank integrations, and SEC-standard tier-level compliance using AWS and Node.js."
+              ctaText="view case study"
+              href="#archive"
+            />
 
-            <article className="article-card reveal">
-              <div className="flex items-start justify-between mb-6">
-                <div className="card-num">03</div>
-                <span className="tag">iOS / Web3</span>
-              </div>
-              <div className="font-mono text-xs mb-4" style={{ color: "var(--muted)" }}>Bitsgap · 2023-2024</div>
-              <h3 className="font-display font-bold text-2xl mb-4 leading-tight">
-                Crypto Trading Bots iOS Application
-              </h3>
-              <p className="text-sm mb-8" style={{ color: "var(--muted)", lineHeight: 1.65 }}>
-                Designed sleek UI for portfolio dashboards, trading terminals, and bot analytics using Swift. Implemented responsive layouts, animated charts (candlestick/pie), and intuitive parameter tuning forms.
-              </p>
-              <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest" style={{ color: "var(--accent)" }}>
-                <span>view case study</span>
-                <span className="arrow">→</span>
-              </div>
-            </article>
+            <ArticleCard
+              num="03"
+              tag="iOS / Web3"
+              meta="Bitsgap · 2023-2024"
+              title="Crypto Trading Bots iOS Application"
+              description="Designed sleek UI for portfolio dashboards, trading terminals, and bot analytics using Swift. Implemented responsive layouts, animated charts (candlestick/pie), and intuitive parameter tuning forms."
+              ctaText="view case study"
+              href="#archive"
+            />
           </div>
         </div>
       </section>

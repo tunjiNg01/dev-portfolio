@@ -82,6 +82,12 @@ export function Header() {
             experience
           </Link>
           <Link
+            href="/blog"
+            className={`hover-link ${pathname.startsWith("/blog") ? "active" : ""}`}
+          >
+            blog
+          </Link>
+          <Link
             href="/about"
             className={`hover-link ${pathname === "/about" ? "active" : ""}`}
           >
