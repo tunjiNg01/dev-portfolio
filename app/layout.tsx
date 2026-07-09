@@ -28,8 +28,29 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Tunji Hammed — Full-Stack Software Engineer",
+  metadataBase: new URL("https://tunji.dev"),
+  title: {
+    default: "Tunji Hammed — Full-Stack Software Engineer",
+    template: "%s | Tunji Hammed",
+  },
   description: "Full-Stack Software Engineer — building scalable, high-performance solutions from database to UI.",
+  keywords: ["Software Engineer", "Full-Stack Developer", "Node.js", "React", "Next.js", "Flutter", "AWS", "Serverless"],
+  authors: [{ name: "Tunji Hammed" }],
+  creator: "Tunji Hammed",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://tunji.dev",
+    title: "Tunji Hammed — Full-Stack Software Engineer",
+    description: "Full-Stack Software Engineer — building scalable, high-performance solutions from database to UI.",
+    siteName: "Tunji Hammed Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tunji Hammed — Full-Stack Software Engineer",
+    description: "Full-Stack Software Engineer — building scalable, high-performance solutions from database to UI.",
+    creator: "@tunji_hammed",
+  },
 };
 
 export default function RootLayout({
@@ -43,6 +64,24 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} ${fraunces.variable}`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Tunji Hammed",
+              url: "https://tunji.dev",
+              jobTitle: "Full-Stack Software Engineer",
+              sameAs: [
+                "https://www.linkedin.com/in/hammed-olatunji-09a5091ba/",
+                "https://www.youtube.com/channel/UC6l55T2dMvzdDQszyflbbLA",
+              ],
+            }),
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col">
         <ThemeProvider>
           <ProgressBar />

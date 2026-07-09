@@ -23,6 +23,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${post.title} — Tunji Hammed`,
     description: post.description,
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      type: "article",
+      publishedTime: post.date,
+      authors: ["Tunji Hammed"],
+      url: `https://tunji.dev/blog/${slug}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+    },
   };
 }
 
@@ -40,8 +53,26 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     day: "numeric",
   });
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    author: {
+      "@type": "Person",
+      name: "Tunji Hammed",
+      url: "https://tunji.dev",
+    },
+  };
+
   return (
-    <article className="min-h-screen pb-32">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <article className="min-h-screen pb-32">
       <header className="pt-32 pb-16 px-6 border-b" style={{ borderColor: "var(--border)", background: "var(--bg-elev)" }}>
         <div className="max-w-3xl mx-auto">
           <Link href="/blog" className="inline-flex items-center gap-2 mb-10 font-mono text-xs uppercase tracking-widest hover-link" style={{ color: "var(--muted)" }}>
@@ -106,5 +137,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </div>
       </div>
     </article>
+    </>
   );
 }

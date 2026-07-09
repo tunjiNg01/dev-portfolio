@@ -34,7 +34,7 @@ const tunji: Engineer = {
 
 // Currently architecting scalable systems.`;
 
-export default function About() {
+export default function AboutPage() {
   useScrollReveal();
 
   useEffect(() => {

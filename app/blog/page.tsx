@@ -3,9 +3,11 @@ import { BlogList } from "../../components/blog/BlogList";
 import { MouseGlow } from "../../components/ui/MouseGlow";
 import { Typewriter } from "../../components/ui/Typewriter";
 
-export const metadata = {
-  title: "Blog — Tunji Hammed",
-  description: "Read my latest technical articles, tutorials, and insights.",
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description: "Read technical articles and insights on scalable architectures, cross-platform apps, and full-stack engineering.",
 };
 
 export default function BlogIndexPage() {
