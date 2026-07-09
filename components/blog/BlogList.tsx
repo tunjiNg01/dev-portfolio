@@ -41,7 +41,7 @@ export function BlogList({ posts }: { posts: BlogPostMeta[] }) {
               title={post.title}
               description={post.description}
               href={`/blog/${post.slug}`}
-              ctaText="read post"
+              ctaText="read blog"
             />
           ))}
         </div>
