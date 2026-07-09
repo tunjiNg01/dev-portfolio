@@ -6,6 +6,7 @@ import "./globals.css";
 import { ThemeProvider } from "../context/ThemeContext";
 import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
+import { CallToAction } from "../components/layout/CallToAction";
 import { ProgressBar } from "../components/ui/ProgressBar";
 
 // Prevent FontAwesome from dynamically adding its css since we did it manually above
@@ -49,6 +50,7 @@ export default function RootLayout({
           <main className="flex-1">
             {children}
           </main>
+          <CallToAction />
           <Footer />
         </ThemeProvider>
       </body>
