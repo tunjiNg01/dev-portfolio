@@ -55,7 +55,7 @@ export function CodeSnippet({ filename, code }: CodeSnippetProps) {
       </div>
       <pre
         className="p-6 md:p-7 text-xs md:text-sm overflow-x-auto"
-        style={{ background: "var(--code-bg)", margin: 0, lineHeight: 1.7 }}
+        style={{ background: "var(--code-bg)", color: "var(--code-fg)", margin: 0, lineHeight: 1.7 }}
       >
         <code dangerouslySetInnerHTML={{ __html: code }} />
       </pre>
