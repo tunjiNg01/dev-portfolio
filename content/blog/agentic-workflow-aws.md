@@ -135,7 +135,9 @@ export class CdkStack extends cdk.Stack {
 2. **Container Build (`ecs.ContainerImage.fromAsset`)**: The CDK automatically looks at your local directory, builds your Dockerfile, and pushes it to a private AWS ECR repository.
 3. **The Orchestrator (`pipes.CfnPipe`)**: This is the magic. The EventBridge Pipe natively listens to the SQS queue. 
 4. **Dynamic Data Injection (`containerOverrides`)**: When a message arrives, the Pipe extracts the raw JSON body (`$.body`) from the SQS message and injects it straight into your container's startup command line array as a runtime argument.
-5. **Scale to Zero**: EventBridge spins up the Fargate task. The python script runs, extracts the JSON from `sys.argv[1]`, processes the documents, and eventually calls `sys.exit(0)`. The container is destroyed, and billing instantly stops.
+5. **Scale to Zero (The Kill Switch)**: EventBridge spins up the Fargate task. The python script runs, extracts the JSON from `sys.argv[1]`, processes the documents, and crucially, executes `sys.exit(0)` at the very end of the script. 
+
+Because a Fargate container's lifecycle is bound to its primary process, calling `sys.exit(0)` gracefully terminates the container. The exact millisecond that command runs, the container is destroyed, and your AWS billing instantly stops.
 
 ## Pros and Cons of this Architecture
 
